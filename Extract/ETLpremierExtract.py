@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import numpy as np
 
-class SpotifyandYoutubeExtract:  
+class ETLpremierExtract:  
 
     def __init__(self, csv_path):
         self.csv = csv_path

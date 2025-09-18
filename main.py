@@ -1,6 +1,6 @@
 # Importaciones de clases del proyecto
-from Extract.ETLpremierExtract import SpotifyandYoutubeExtract
-from Transform.ETLpremierClean import SpotifyandYoutubeClean
+from Extract.ETLpremierExtract import ETLpremierExtract
+from Transform.ETLpremierClean import ETLpremierClean
 from Config.config import Config
 from Load.loader import Loader
 from Extract.Graphic.ETLpremierGraphic import (
@@ -10,7 +10,7 @@ from Extract.Graphic.ETLpremierGraphic import (
 )
 
 # Extracción de datos
-extractor = SpotifyandYoutubeExtract(Config.INPUT_PATH)
+extractor = ETLpremierExtract(Config.INPUT_PATH)
 extractor.queries()
 df = extractor.data
 
@@ -21,7 +21,7 @@ print(df)
 # Limpieza de datos
 
 # Limpieza de datos
-limpieza = SpotifyandYoutubeClean(df)
+limpieza = ETLpremierClean(df)
 resultados_nulos_ceros = limpieza.verificar_nulos_ceros()
 print("\n--- NULOS Y CEROS POR COLUMNA ---\n")
 print(resultados_nulos_ceros)
@@ -30,7 +30,7 @@ print(resultados_nulos_ceros)
 equipos_a_eliminar = ['Brighton & Hove Albion', 'Ipswich Town']
 df_sin_equipos = limpieza.eliminar_equipos(equipos_a_eliminar)
 
-limpieza_final = SpotifyandYoutubeClean(df_sin_equipos)
+limpieza_final = ETLpremierClean(df_sin_equipos)
 df_limpio = limpieza_final.limpiar_columnas()
 print("\n--- DATASET LIMPIO ---\n")
 print(df_limpio)
@@ -41,7 +41,7 @@ loader.to_csv(Config.OUTPUT_PATH)
 
 # Mostrar el DataFrame de nulos y ceros del dataset limpio
 print("\n--- NULOS Y CEROS EN DATASET LIMPIO ---\n")
-resultados_nulos_ceros_limpio = SpotifyandYoutubeClean(df_limpio).verificar_nulos_ceros()
+resultados_nulos_ceros_limpio = ETLpremierClean(df_limpio).verificar_nulos_ceros()
 print(resultados_nulos_ceros_limpio)
 
 # Carga a SQLite

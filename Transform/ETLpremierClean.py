@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Clase para limpieza de datos
-class SpotifyandYoutubeClean:
+class ETLpremierClean:
 	def __init__(self, df):
 		self.df = df.copy()
 
