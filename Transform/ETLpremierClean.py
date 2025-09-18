@@ -14,6 +14,17 @@ class SpotifyandYoutubeClean:
 		ceros = (self.df == 0).sum()
 		return pd.DataFrame({'Nulos': nulos, 'Ceros': ceros})
 
+	def eliminar_equipos(self, equipos):
+		"""
+		Elimina filas donde el equipo (local o visitante) sea alguno de los especificados en la lista 'equipos'.
+		"""
+		df_filtrado = self.df.copy()
+		# Asume que las columnas relevantes son 'HomeTeam' y 'AwayTeam'. Ajusta si el nombre es diferente.
+		if 'HomeTeam' in df_filtrado.columns and 'AwayTeam' in df_filtrado.columns:
+			df_filtrado = df_filtrado[~df_filtrado['HomeTeam'].isin(equipos)]
+			df_filtrado = df_filtrado[~df_filtrado['AwayTeam'].isin(equipos)]
+		return df_filtrado
+	
 	def limpiar_columnas(self):
 		"""
 		Elimina columnas irrelevantes y filas con nulos, pero conserva los ceros.

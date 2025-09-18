@@ -19,12 +19,19 @@ print("\n--- DATASET ORIGINAL ---\n")
 print(df)
 
 # Limpieza de datos
+
+# Limpieza de datos
 limpieza = SpotifyandYoutubeClean(df)
 resultados_nulos_ceros = limpieza.verificar_nulos_ceros()
 print("\n--- NULOS Y CEROS POR COLUMNA ---\n")
 print(resultados_nulos_ceros)
 
-df_limpio = limpieza.limpiar_columnas()
+# Eliminar equipos específicos antes de limpiar columnas
+equipos_a_eliminar = ['Brighton & Hove Albion', 'Ipswich Town']
+df_sin_equipos = limpieza.eliminar_equipos(equipos_a_eliminar)
+
+limpieza_final = SpotifyandYoutubeClean(df_sin_equipos)
+df_limpio = limpieza_final.limpiar_columnas()
 print("\n--- DATASET LIMPIO ---\n")
 print(df_limpio)
 
