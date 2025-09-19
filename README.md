@@ -55,15 +55,15 @@ pip install -r requirements.txt
 ### Gráficas generadas
 
 #### 1. Promedio de goles de Liverpool
-![Gráfica Liverpool](docs/grafica_liverpool.png)
+![Gráfica Liverpool](docs/goles_liverpool.png)
 **Interpretación:** Liverpool mantiene un promedio de goles alto en la temporada, lo que refleja su capacidad ofensiva constante.
 
 #### 2. Promedio de tarjetas por equipo
-![Gráfica Tarjetas](docs/grafica_tarjetas.png)
+![Gráfica Tarjetas](docs/tarjetas_por_equipo.png)
 **Interpretación:** Algunos equipos presentan mayor cantidad de tarjetas, indicando estilos de juego más agresivos o defensivos.
 
 #### 3. Promedio de goles por equipo
-![Gráfica Goles por Equipo](docs/grafica_goles_equipo.png)
+![Gráfica Goles por Equipo](docs/goles_por_equipo.png)
 **Interpretación:** El promedio de goles por equipo permite identificar los clubes más efectivos en ataque y los que necesitan mejorar su ofensiva.
 
 ---
