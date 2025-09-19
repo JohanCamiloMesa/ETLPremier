@@ -51,6 +51,6 @@ loader.to_sqlite()
 # Mostrar gráficas al final
 
 print("\n--- MOSTRANDO GRÁFICAS ---\n")
-grafica_promedio_goles_liverpool(df_limpio)
-grafica_promedio_tarjetas_por_equipo(df_limpio)
-grafica_promedio_goles_por_equipo(df_limpio)
+grafica_promedio_goles_liverpool(df_limpio, guardar=True)
+grafica_promedio_tarjetas_por_equipo(df_limpio, guardar=True)
+grafica_promedio_goles_por_equipo(df_limpio, guardar=True)
