@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from Config.config import Config
 
-def grafica_promedio_goles_liverpool(df):
+def grafica_promedio_goles_liverpool(df, guardar=True):
 	# Promedio de goles de local y visitante del Liverpool
 	goles_local = df[df['HomeTeam'] == 'Liverpool']['FTH Goals'].mean()
 	goles_visitante = df[df['AwayTeam'] == 'Liverpool']['FTA Goals'].mean()
@@ -14,9 +14,11 @@ def grafica_promedio_goles_liverpool(df):
 	plt.xlabel('Condición')
 	plt.ylabel('Promedio de Goles')
 	plt.tight_layout()
+	if guardar:
+		plt.savefig('docs/goles_liverpool.png')
 	plt.show()
 
-def grafica_promedio_tarjetas_por_equipo(df):
+def grafica_promedio_tarjetas_por_equipo(df, guardar=True):
 	# Promedio de tarjetas amarillas y rojas por equipo local
 	amarillas = df.groupby('HomeTeam')['H Yellow'].mean()
 	rojas = df.groupby('HomeTeam')['H Red'].mean()
@@ -30,9 +32,11 @@ def grafica_promedio_tarjetas_por_equipo(df):
 	plt.xticks(rotation=90)
 	plt.legend(['Amarillas', 'Rojas'])
 	plt.tight_layout()
+	if guardar:
+		plt.savefig('docs/tarjetas_por_equipo.png')
 	plt.show()
 
-def grafica_promedio_goles_por_equipo(df):
+def grafica_promedio_goles_por_equipo(df, guardar=True):
 	plt.figure(figsize=(10, 6))
 	goles_por_equipo = df.groupby('HomeTeam')['FTH Goals'].mean().sort_values(ascending=False)
 	sns.barplot(x=goles_por_equipo.index, y=goles_por_equipo.values, palette='viridis')
@@ -41,5 +45,7 @@ def grafica_promedio_goles_por_equipo(df):
 	plt.ylabel('Promedio de Goles')
 	plt.xticks(rotation=90)
 	plt.tight_layout()
+	if guardar:
+		plt.savefig('docs/goles_por_equipo.png')
 	plt.show()
 
